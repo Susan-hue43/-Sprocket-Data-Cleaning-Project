@@ -1,2 +1,129 @@
-# -Sprocket-Data-Cleaning-Project
-This project documents and performs a comprehensive data cleaning process on datasets provided by **Sprocket Central Pty Ltd**.
+# Sprocket Data Cleaning Project
+
+## Project Overview
+
+This project is based on the **KPMG Data Analytics Virtual Internship** hosted on [**Forage**](https://www.theforage.com/dashboard), designed to simulate real-world tasks faced by analysts. The simulation is structured into three parts, and this report covers the **first phase**, which focuses on assessing and cleaning the data provided by the client.
+
+---
+
+### Client Background
+
+Sprocket Central Pty Ltd is a trusted KPMG client that sells premium bicycles and cycling accessories aimed at a broad range of riders. To sharpen their marketing strategy, the company’s team is exploring ways to better understand their customer base through data.
+
+They believe the customer datasets they've collected hold valuable insights that could help them tailor their marketing efforts, especially toward high-value customers. But before any meaningful analysis can happen, the data needs to be carefully reviewed and cleaned to ensure it's accurate, complete, and reliable.
+
+---
+
+## Project Goal
+
+The goal of this phase is to identify all data quality issues in the provided datasets and take appropriate cleaning steps. The cleaning work is grouped under six core data quality dimensions:
+
+* **Accuracy**
+* **Consistency**
+* **Completeness**
+* **Relevancy**
+* **Uniqueness**
+* **Validity**
+
+The result is a set of clean, analysis ready datasets that can confidently support the next steps in customer segmentation and marketing analysis.
+
+---
+
+## Datasets
+- **Customer Demographics**
+- **Transactions**
+- **New Customer List**
+- **Customer Address**
+
+---
+
+## 1. Accuracy
+
+### Issue
+- DOB `1843-12-21` for customer Jephthah Bachmann is likely an error.
+
+### Action
+- Corrected to `1943-12-21` (consistent with max observed age in dataset).
+
+---
+
+## 2. Consistency
+
+### Issues
+- Gender formats inconsistent (`F`, `Femal`, `M`, `U`).
+- Product first sold date format inconsistent.
+- Gender `U` in New Customer List unclear.
+
+### Actions
+- Normalized gender: `F → Female`, `M → Male`, `U → Unsure`.
+- Standardized all date columns to `datetime` format.
+- Changed `U` in gender to `Unsure`.
+
+---
+
+## 3. Completeness
+
+### Issues
+- Customer Demographics: 1045 blanks (Last Name, DOB, Job Title, Tenure).
+- Transactions: 1542 blanks (Online_order, Brand, Product_line, etc.).
+- New Customer List: 152 blanks (Last Name, DOB, Job Title).
+
+### Actions
+- Filled `Last Name`, `Job Title` blanks with `'n/a'`.
+- Filled `Tenure` with `0` (assumed to be in years).
+- Filled categorical product info with `'n/a'` or `0` as needed.
+- Left `DOB` blanks intact due to relevance to analysis.
+
+---
+
+## 4. Relevancy
+
+### Issues
+- Deceased customers present in Customer Demographics.
+- Default column full of anonymous values.
+
+### Actions
+- Removed two deceased customers.
+- Dropped the default column.
+
+---
+
+## 5. Uniqueness
+
+### Issue
+- New Customer List had no unique identifier.
+
+### Action
+- Added a custom `Index` column for uniqueness.
+
+---
+
+## 6. Validity
+
+### Issues
+- Numerical fields in text format (columns `post code`, `property valuation, `past 3 years purchases`).
+- Inconsistent decimal precision in `Value` column.
+- State abbreviations used inconsistently.
+
+### Actions
+- Converted the fields to numeric types.
+- Standardized decimal places in `Value` column.
+- Expanded all state abbreviations to full names.
+
+---
+
+## Enhancements
+
+- Added `age` and `age_group` columns for segmentation.
+- Ensured all datasets are analysis-ready and cleaned for business insight generation.
+
+---
+
+## Recommendations
+
+1. **Data Validation Rules:** Implement form-level and field-level validation at the point of entry.
+2. **Automated Monitoring:** Introduce data quality monitoring tools to track missing values and anomalies.
+3. **Standardized Templates:** Use controlled vocabularies and dropdowns during data entry to prevent format inconsistencies.
+4. **Regular Audits:** Schedule periodic data quality audits to maintain a high standard of data integrity.
+5. **Imputation Strategy:** Where possible, use statistical or ML-based imputation instead of nulls or placeholders.
+
