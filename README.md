@@ -51,6 +51,13 @@ The result is a set of clean, analysis ready datasets that can confidently suppo
 
 ---
 
+### Tools Used
+The following tools were applied to identify and resolve data quality issues across the provided datasets:
+
+- **Microsoft Excel** – For dataset exploration and issue flagging.  
+- **Power Query** – Used extensively for cleaning, transforming, and reshaping data.
+---
+
 ## 1. Accuracy
 
 ### Issue
