@@ -116,7 +116,7 @@ The result is a set of clean, analysis ready datasets that can confidently suppo
 ## 6. Validity
 
 ### Issues
-- Numerical fields in text format (columns `post code`, `property valuation, `past 3 years purchases`).
+- Numerical fields in text format (columns `post code`, `property valuation`, `past 3 years purchases`).
 - Inconsistent decimal precision in `Value` column.
 - State abbreviations used inconsistently.
 
