@@ -1,5 +1,17 @@
 # Sprocket Data Cleaning Project
 
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Project Goal](#project-goal)
+3. [1. Accuracy](#1-accuracy)
+4. [2. Consistency](#2-consistency)
+5. [3. Completeness](#3-completeness)
+6. [4. Relevancy](#4-relevancy)
+7. [5. Uniqueness](#5-uniqueness)
+8. [6. Validity](#6-validity)
+9. [Enhancements](#enhancements)
+10. [Recommendations](#recommendations)
+
 ## Project Overview
 
 This project is based on the **KPMG Data Analytics Virtual Internship** hosted on [**Forage**](https://www.theforage.com/dashboard), designed to simulate real-world tasks faced by analysts. The simulation is structured into three parts, and this report covers the **first phase**, which focuses on assessing and cleaning the data provided by the client.
