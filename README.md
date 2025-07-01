@@ -12,6 +12,8 @@
 9. [Enhancements](#enhancements)
 10. [Recommendations](#recommendations)
 
+---
+
 ## Project Overview
 
 This project is based on the **KPMG Data Analytics Virtual Internship** hosted on [**Forage**](https://www.theforage.com/dashboard), designed to simulate real-world tasks faced by analysts. The simulation is structured into three parts, and this report covers the **first phase**, which focuses on assessing and cleaning the data provided by the client.
